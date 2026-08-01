@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact // Mohan Ram A</title>
+<link rel="icon" href="logo.png" >
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  .bg-page-img {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px; height: 550px; object-fit: contain;
+    opacity: 0.05; pointer-events: none; z-index: 0;
+  }
+  .contact-info-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px;
+  }
+  @media (max-width: 680px) { .contact-info-grid { grid-template-columns: 1fr; } }
+  .cinfo-card {
+    border: 1px solid var(--green-dim); background: var(--panel); border-radius: 8px;
+    padding: 20px 22px; display: flex; align-items: center; gap: 14px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .cinfo-card:hover { border-color: var(--green); box-shadow: 0 0 14px rgba(57,255,20,0.15); }
+  .cinfo-card .cicon { font-size: 22px; width: 36px; text-align: center; flex-shrink: 0; }
+  .cinfo-card .ctxt .clabel { color: var(--grey); font-size: 10px; letter-spacing: 2px; display: block; margin-bottom: 4px; }
+  .cinfo-card .ctxt .cval { color: var(--white); font-size: 13px; }
+  .cinfo-card .ctxt a { color: var(--sky); text-decoration: none; }
+  .cinfo-card .ctxt a:hover { text-decoration: underline; }
+
+  .form-section { background: var(--panel); border: 1px solid var(--green-dim); border-radius: 10px; padding: 28px 30px; }
+  .form-section h2 { font-family: var(--font-display); font-size: 14px; color: var(--green); letter-spacing: 3px; margin: 0 0 22px; }
+</style>
+</head>
+<body>
+
+<img src="wm-home.png" class="bg-page-img" alt="">
+
+<header class="topbar">
+  <a href="index.html" class="topbar-logo">
+    <img src="logo.png" width="52" height="52" alt="MR logo">
+    <span class="logo-text">MOHAN RAM A<span>CYBERSECURITY</span></span>
+  </a>
+</header>
+
+<div class="navfab-overlay" id="navfabOverlay"></div>
+<div class="navfab-halo" id="navfabHalo"></div>
+<div id="navfabItems"></div>
+<button class="navfab" id="navfabBtn" aria-label="Toggle navigation">
+  <span class="navfab-icon"><i class="fa-solid fa-bars"></i></span>
+</button>
+
+<div class="wrap">
+  <h1 class="page-title glitch-title">// CONTACT</h1>
+
+  <section class="reveal">
+    <div class="label">// REACH_ME</div>
+    <div class="contact-info-grid">
+      <div class="cinfo-card">
+        <span class="cicon" style="color:var(--green);"><i class="fa-solid fa-phone"></i></span>
+        <div class="ctxt">
+          <span class="clabel">PHONE</span>
+          <span class="cval">+91 9597172271</span>
+        </div>
+      </div>
+      <div class="cinfo-card">
+        <span class="cicon" style="color:var(--sky);"><i class="fa-solid fa-envelope"></i></span>
+        <div class="ctxt">
+          <span class="clabel">EMAIL</span>
+          <span class="cval"><a href="mailto:mohanja555@gmail.com">mohanja555@gmail.com</a></span>
+        </div>
+      </div>
+      <div class="cinfo-card">
+        <span class="cicon" style="color:var(--pink);"><i class="fa-solid fa-location-dot"></i></span>
+        <div class="ctxt">
+          <span class="clabel">LOCATION</span>
+          <span class="cval">Mettur, Tamil Nadu, India</span>
+        </div>
+      </div>
+      <div class="cinfo-card">
+        <span class="cicon" style="color:var(--violet);"><i class="fa-brands fa-linkedin"></i></span>
+        <div class="ctxt">
+          <span class="clabel">LINKEDIN</span>
+          <span class="cval"><a href="#" target="_blank">linkedin.com/in/mohanram</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="label">// SEND_MESSAGE</div>
+    <div class="form-section">
+      <h2>// DROP_A_MESSAGE</h2>
+      <div class="contact-form" id="contactForm">
+        <div class="cf-row">
+          <div class="cf-field">
+            <label for="cf-name">NAME</label>
+            <input type="text" id="cf-name" placeholder="Your full name" autocomplete="name">
+          </div>
+          <div class="cf-field">
+            <label for="cf-email">EMAIL</label>
+            <input type="email" id="cf-email" placeholder="your@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="cf-mobile">MOBILE</label>
+          <input type="tel" id="cf-mobile" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+        </div>
+        <div class="cf-field">
+          <label for="cf-msg">MESSAGE</label>
+          <textarea id="cf-msg" placeholder="Your message here …" rows="5"></textarea>
+        </div>
+        <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+          <button class="cf-submit" id="cf-btn">
+            <i class="fa-solid fa-paper-plane"></i>&nbsp; SEND_MESSAGE
+          </button>
+          <div class="cf-status" id="cf-status"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="red">root@mohanram</span>:~$ © 2026 Mohan Ram A — built while learning ethical hacking.
+  </footer>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Contact form handler — uses mailto as a reliable no-backend approach
+  document.getElementById('cf-btn').addEventListener('click', () => {
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const mobile  = document.getElementById('cf-mobile').value.trim();
+    const msg     = document.getElementById('cf-msg').value.trim();
+    const status  = document.getElementById('cf-status');
+
+    if (!name || !email || !msg) {
+      status.style.color = 'var(--pink)';
+      status.textContent = '> ERROR: name, email & message are required.';
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nMobile: ${mobile || 'N/A'}\n\nMessage:\n${msg}`
+    );
+    window.location.href = `mailto:mohanja555@gmail.com?subject=${subject}&body=${body}`;
+
+    status.style.color = 'var(--green)';
+    status.textContent = '> SUCCESS: opening your email client …';
+  });
+</script>
+</body>
+</html>

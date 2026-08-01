@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About // Mohan Ram A</title>
+<link rel="icon" href="logo.png" >
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  .bg-page-img {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px; height: 550px; object-fit: contain;
+    opacity: 0.05; pointer-events: none; z-index: 0;
+  }
+  @media (max-width: 680px) { .bg-page-img { width: 300px; height: 300px; } }
+</style>
+</head>
+<body>
+
+<img src="about-portrait.png" class="bg-page-img" alt="">
+
+<header class="topbar">
+  <a href="index.html" class="topbar-logo">
+    <img src="logo.png" width="52" height="52" alt="MR logo">
+    <span class="logo-text">MOHAN RAM A<span>CYBERSECURITY</span></span>
+  </a>
+</header>
+
+<div class="navfab-overlay" id="navfabOverlay"></div>
+<div class="navfab-halo" id="navfabHalo"></div>
+<div id="navfabItems"></div>
+<button class="navfab" id="navfabBtn" aria-label="Toggle navigation">
+  <span class="navfab-icon"><i class="fa-solid fa-bars"></i></span>
+</button>
+
+<div class="wrap">
+  <h1 class="page-title glitch-title">// ABOUT_ME</h1>
+
+  <div class="about-hero reveal">
+    <div>
+      <div class="glitchtag">[ IDENTITY_VERIFIED ]</div>
+      <h2 class="neon-name">MOHAN RAM A</h2>
+      <p style="color:var(--sky); font-size:12px; letter-spacing:3px; margin:0 0 20px;">CYBERSECURITY ENTHUSIAST</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">2+</div><div class="lbl">PROJECTS</div></div>
+        <div class="stat"><div class="num">3+</div><div class="lbl">TOOLS</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">INTERNSHIP</div></div>
+        <div class="stat"><div class="num">∞</div><div class="lbl">CURIOSITY</div></div>
+      </div>
+    </div>
+    <div class="about-portrait">
+      <img src="about-portrait.png" alt="Mohan Ram A">
+    </div>
+  </div>
+
+  <hr class="divider">
+  <section id="bio" class="reveal">
+    <div class="label">// WHO_AM_I</div>
+    <div class="about-block">
+      <h3>BACKGROUND</h3>
+      <p>I'm Mohan Ram A — a cybersecurity enthusiast from Mettur, Tamil Nadu, India. Passionate about ethical hacking, network security, and understanding how systems can be compromised so they can be better protected. Every vulnerability is a lesson waiting to be learned.</p>
+    </div>
+    <div class="about-block">
+      <h3>MISSION</h3>
+      <p>To build a career in cybersecurity where I can actively contribute to protecting digital infrastructure. Constantly learning — from tools like Nmap, Wireshark and Metasploit to writing Python scripts that automate security workflows.</p>
+    </div>
+    <div class="about-block">
+      <h3>PHILOSOPHY</h3>
+      <p>Think like an attacker, act like a defender. The best security professional never stops being curious. Every CTF challenge, every packet capture, every vulnerability report makes me sharper.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <section id="education" class="reveal">
+    <div class="label">// EDUCATION</div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <span class="yr">2022 – 2026</span>
+        <h3>B.E. Computer Science &amp; Engineering</h3>
+        <div class="inst">Jayalakshmi Institute of Technology, Dharmapuri</div>
+        <div class="grade">// Specialization: Cybersecurity</div>
+      </div>
+      <div class="edu-card">
+        <span class="yr">2020 – 2022</span>
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <div class="inst">Tamil Nadu State Board</div>
+        <div class="grade">// Computer Science Stream</div>
+      </div>
+      <div class="edu-card">
+        <span class="yr">2019 – 2020</span>
+        <h3>Secondary School (SSLC)</h3>
+        <div class="inst">Tamil Nadu State Board</div>
+        <div class="grade">// Mathematics &amp; Science foundation</div>
+      </div>
+      <div class="edu-card">
+        <span class="yr">ONGOING</span>
+        <h3>Self-Directed Learning</h3>
+        <div class="inst">TryHackMe · HackTheBox · YouTube · Docs</div>
+        <div class="grade">// Never stops</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <section id="personal" class="reveal">
+    <div class="label">// PERSONAL_DATA</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div class="about-block">
+        <h3>LOCATION</h3>
+        <p>Mettur, Salem District<br>Tamil Nadu, India 636 401</p>
+      </div>
+      <div class="about-block">
+        <h3>INTERESTS</h3>
+        <p>Ethical Hacking · CTF Challenges<br>Open Source · AI Security</p>
+      </div>
+      <div class="about-block">
+        <h3>LANGUAGES</h3>
+        <div class="lang-row" style="padding-left:18px; margin-top:6px;">
+          <span class="lang-tag native">Tamil (Native)</span>
+          <span class="lang-tag sky">English (Professional)</span>
+        </div>
+      </div>
+      <div class="about-block">
+        <h3>AVAILABILITY</h3>
+        <p style="color:var(--green);">● Open to Internships &amp; Full-Time Roles</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="red">root@mohanram</span>:~$ © 2026 Mohan Ram A — built while learning ethical hacking.
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

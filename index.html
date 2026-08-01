@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohan Ram/Portfolio</title>
+<link rel="icon" href="logo.png" >
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+
+  /* ── Full-screen looping video background ── */
+  .bg-video {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.28;          /* dim enough to keep text readable */
+  }
+
+  /* ── Dark overlay on top of video ── */
+  .bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.60);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ── Portrait image — circle, fixed centre ── */
+  .bg-circle-portrait {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;               /* circle shape */
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 2;
+    border: 1px solid rgba(57,255,20,0.15);
+    box-shadow: 0 0 60px rgba(57,255,20,0.08);
+  }
+  @media (max-width: 680px) {
+    .bg-circle-portrait {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- 1. Looping video background -->
+<video class="bg-video" autoplay loop muted playsinline preload="auto">
+  <source src="videoplayback.webm" type="video/webm">
+</video>
+
+<!-- 2. Dark overlay -->
+<div class="bg-overlay"></div>
+
+<!-- 3. Portrait in circle, fixed centre -->
+<img src="about-portrait.png" class="bg-circle-portrait" alt="">
+
+<!-- ── rest of page (z-index 2+) ── -->
+<header class="topbar">
+  <a href="index.html" class="topbar-logo">
+    <img src="logo.png" width="52" height="52" alt="MR logo">
+    <span class="logo-text">MOHAN RAM A<span>CYBERSECURITY</span></span>
+  </a>
+</header>
+
+<div class="navfab-overlay" id="navfabOverlay"></div>
+<div class="navfab-halo" id="navfabHalo"></div>
+<div id="navfabItems"></div>
+<button class="navfab" id="navfabBtn" aria-label="Toggle navigation">
+  <span class="navfab-icon"><i class="fa-solid fa-bars"></i></span>
+</button>
+
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="ai-welcome" id="aiWelcome"><span class="ai-cursor"></span></div>
+      <div class="ai-cmd">
+        <span class="prompt">AI&gt;</span>
+        <input type="text" id="aiCmdInput" placeholder="type: home / skills / projects / contact ...">
+      </div>
+      <div class="ai-cmd-feedback" id="aiCmdFeedback"></div>
+      <div class="glitchtag">[ ACCESS_GRANTED ]</div>
+      <h1 class="neon-name glitch-title">MOHAN RAM A</h1>
+      <p class="tagline" id="typeTarget"><span class="type-cursor"></span></p>
+      <div class="contact-strip">
+        <span><b>Phone:</b> +91 9597172271</span>
+        <span><b>Email:</b> mohanja555@gmail.com</span>
+        <span><b>Location:</b> Mettur, Tamil Nadu, India</span>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-ring">
+        <img src="logo.png" alt="Mohan Ram A">
+      </div>
+
+      <svg class="reticle" viewBox="0 0 200 200">
+        <circle class="outer-static" cx="100" cy="100" r="98" />
+        <circle class="dash-ring" cx="100" cy="100" r="78" />
+        <circle class="thin-ring" cx="100" cy="100" r="60" />
+
+        <g class="tick-ring">
+          <path class="arc-seg" d="M116.3,7.4 A94,94 0 0 1 192.6,83.7" />
+          <path class="arc-seg" d="M192.6,116.3 A94,94 0 0 1 116.3,192.6" />
+          <path class="arc-seg" d="M83.7,192.6 A94,94 0 0 1 7.4,116.3" />
+          <path class="arc-seg" d="M7.4,83.7 A94,94 0 0 1 83.7,7.4" />
+          <line class="tick" x1="116.3" y1="7.4"   x2="112" y2="16" />
+          <line class="tick" x1="192.6" y1="83.7"  x2="184" y2="88" />
+          <line class="tick" x1="192.6" y1="116.3" x2="184" y2="112" />
+          <line class="tick" x1="116.3" y1="192.6" x2="112" y2="184" />
+          <line class="tick" x1="83.7" y1="192.6"  x2="88" y2="184" />
+          <line class="tick" x1="7.4" y1="116.3"   x2="16" y2="112" />
+          <line class="tick" x1="7.4" y1="83.7"    x2="16" y2="88" />
+          <line class="tick" x1="83.7" y1="7.4"    x2="88" y2="16" />
+        </g>
+
+        <path class="scan-arc" d="M100,10 A90,90 0 0 1 178,60" />
+
+        <g class="crosshair">
+          <!-- <line x1="100" y1="4" x2="100" y2="196" />
+          <line x1="4" y1="100" x2="196" y2="100" /> -->
+          <polygon points="94,2 106,2 100,16" />
+          <polygon points="198,94 198,106 184,100" />
+          <polygon points="94,198 106,198 100,184" />
+          <polygon points="2,94 2,106 16,100" />
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="fake-terminal" id="fakeTerminal"></div>
+
+  <hr class="divider">
+  <section id="about" class="reveal">
+    <div class="label">// CAREER_OBJECTIVE</div>
+    <div class="about">
+      <p>Motivated cybersecurity enthusiast with knowledge of network security, vulnerability assessment, and penetration testing. Skilled in tools such as Nmap, Wireshark, and Metasploit. Seeking an opportunity to apply cybersecurity skills to protect systems and networks.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="red">root@mohanram</span>:~$ &copy; 2026 Mohan Ram A &mdash; built while learning ethical hacking.
+  </footer>
+</div>
+
+<script src="script.js"></script>
+<script>
+  var aiText = "AI_ASSISTANT: Welcome to Mohan Ram A's cybersecurity portfolio.";
+  typeInto('aiWelcome', aiText, 18, 0, 'ai-cursor');
+  var tagText = "Ethical Hacking | Cybersecurity Enthusiast — building skills in network security, vulnerability assessment, and penetration testing.";
+  typeInto('typeTarget', tagText, 22, aiText.length * 18 + 300, 'type-cursor');
+  initAiCommandNav('aiCmdInput', 'aiCmdFeedback');
+  startFakeTerminal('fakeTerminal');
+</script>
+</body>
+</html>
