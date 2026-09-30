@@ -1,35 +1,19 @@
-// ── Custom cursor ──
-const cursorDot = document.createElement('div');
-cursorDot.className = 'cursor-dot';
-const cursorRing = document.createElement('div');
-cursorRing.className = 'cursor-ring';
-document.body.appendChild(cursorDot);
-document.body.appendChild(cursorRing);
-
-let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-let ringX = mouseX, ringY = mouseY;
-
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top = mouseY + 'px';
-});
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.18;
-  ringY += (mouseY - ringY) * 0.18;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top = ringY + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-document.addEventListener('mousedown', () => cursorRing.classList.add('active'));
-document.addEventListener('mouseup', () => cursorRing.classList.remove('active'));
-document.querySelectorAll('a, button, .pill, .poster, .entry, .edu-card, .about-block').forEach(el => {
-  el.addEventListener('mouseenter', () => cursorRing.classList.add('active'));
-  el.addEventListener('mouseleave', () => cursorRing.classList.remove('active'));
-});
-
 // ── Scroll reveal ──
+const supportsMouseGlow = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches;
+if (supportsMouseGlow) {
+  const mouseGlow = document.createElement('div');
+  mouseGlow.className = 'mouse-glow';
+  mouseGlow.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(mouseGlow);
+
+  window.addEventListener('pointermove', (event) => {
+    mouseGlow.style.left = `${event.clientX}px`;
+    mouseGlow.style.top = `${event.clientY}px`;
+    mouseGlow.classList.add('visible');
+  }, { passive: true });
+  document.addEventListener('pointerleave', () => mouseGlow.classList.remove('visible'));
+}
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -128,59 +112,4 @@ function initAiCommandNav(inputId, feedbackId) {
       if (feedback) { feedback.style.color = '#ff5a5a'; feedback.textContent = `> unknown: try home / about / skills / projects / experience / contact`; }
     }
   });
-}
-
-// ── Fake terminal ──
-function startFakeTerminal(elId) {
-  const el = document.getElementById(elId);
-  if (!el) return;
-  const lines = [
-    { p: '$ whoami', o: 'mohan_ram — cybersecurity enthusiast' },
-    { p: '$ sudo nmap -sV 192.168.1.10', o: 'PORT 22/tcp open ssh | 80/tcp open http' },
-    { p: '$ ls ~/projects', o: 'xray-fracture-ai/  portfolio-site/' },
-    { p: '$ sudo systemctl status wazuh', o: 'active (running) since boot' },
-  ];
-  function renderLoop() {
-    el.innerHTML = '';
-    let i = 0;
-    function next() {
-      if (i >= lines.length) { setTimeout(renderLoop, 2000); return; }
-      const row = document.createElement('div');
-      row.className = 'ft-line';
-      row.innerHTML = `<span class="ft-prompt">${lines[i].p}</span><br><span class="ft-out">${lines[i].o}</span>`;
-      el.appendChild(row);
-      i++;
-      setTimeout(next, 950);
-    }
-    next();
-  }
-  renderLoop();
-}
-
-// ── Topbar scroll pulse ──
-let scrollTimer = null;
-const topbar = document.querySelector('.topbar');
-if (topbar) {
-  window.addEventListener('scroll', () => {
-    topbar.style.boxShadow = '0 0 16px rgba(57,255,20,0.2)';
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => { topbar.style.boxShadow = 'none'; }, 400);
-  }, { passive: true });
-}
-
-// ── Typewriter ──
-function typeInto(elId, text, speed, startDelay, withCursorClass) {
-  const el = document.getElementById(elId);
-  if (!el) return;
-  const cursor = el.querySelector('.' + withCursorClass);
-  let i = 0;
-  function step() {
-    if (i <= text.length) {
-      el.textContent = text.slice(0, i);
-      if (cursor) el.appendChild(cursor);
-      i++;
-      setTimeout(step, speed);
-    }
-  }
-  setTimeout(step, startDelay || 0);
 }
